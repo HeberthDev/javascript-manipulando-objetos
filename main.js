@@ -29,7 +29,7 @@ function salvarItem() {
 
 function mostrarItem() {
     ulItens.innerHTML = '';
-    
+
     listaDeItens.forEach((elemento, index) => {
         ulItens.innerHTML += `
            <li class="item-compra is-flex is-justify-content-space-between" data-value="${index}">
@@ -43,4 +43,12 @@ function mostrarItem() {
             </li> 
         `;
     });
+
+    const inputsCheck = document.querySelectorAll('input[type="checkbox"]');
+
+    inputsCheck.forEach(i => {
+        i.addEventListener('click', (evento) => {
+            console.log('Fui clicado!');
+        })
+    })
 }
