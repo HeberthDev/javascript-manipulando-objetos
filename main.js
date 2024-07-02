@@ -56,7 +56,9 @@ function mostrarItem() {
                         <input type="text" class="is-size-5" value="${elemento.valor}"></input>
                     </div>
                     <div>
-                        <i class="fa-regular fa-floppy-disk is-clickable"></i>
+                        <button onclick="salvarEdicao()">
+                            <i class="fa-regular fa-floppy-disk is-clickable"></i>
+                        </button>
                         <i class="fa-regular is-clickable fa-pen-to-square editar"></i>
                         <i class="fa-solid fa-trash is-clickable deletar"></i>
                     </div>
@@ -94,4 +96,9 @@ function mostrarItem() {
             mostrarItem();
         });
     });
+}
+
+function salvarEdicao() {
+    const itemEditado = document.querySelector(`[data-value="${itemEditar}"] input[type="text"]`);
+    console.log(itemEditado.value);
 }
