@@ -1,5 +1,5 @@
 let listaDeItens = [];
-let itemEditar;
+let itemAEditar;
 
 const form = document.getElementById('form-itens');
 const itensInput = document.getElementById('receber-item');
@@ -92,13 +92,15 @@ function mostrarItem() {
 
     editarItens.forEach(i => {
         i.addEventListener('click', (evento) => {
-            itemEditar = evento.target.parentElement.parentElement.getAttribute('data-value');
+            itemAEditar = evento.target.parentElement.parentElement.getAttribute('data-value');
             mostrarItem();
         });
     });
 }
 
 function salvarEdicao() {
-    const itemEditado = document.querySelector(`[data-value="${itemEditar}"] input[type="text"]`);
-    console.log(itemEditado.value);
+    const itemEditado = document.querySelector(`[data-value="${itemAEditar}"] input[type="text"]`);
+    listaDeItens[itemAEditar].valor = itemEditado.value;
+    itemAEditar = -1;
+    mostrarItem();
 }
